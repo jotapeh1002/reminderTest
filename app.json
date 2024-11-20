@@ -15,8 +15,7 @@
         "expo-notifications",
         {
           "icon": "./assets/notification-icon.png",
-          "color": "#ffffff",
-          "sounds": ["./assets/notification-sound.wav"]
+          "color": "#ffffff"
         }
       ]
     ],
@@ -38,12 +37,14 @@
     "ios": {
       "supportsTablet": true,
       "infoPlist": {
-        "UIBackgroundModes": ["remote-notification"]
+        "UIBackgroundModes": [
+          "remote-notification"
+        ]
       }
     },
     "android": {
       "permissions": [
-        "VIBRATE", 
+        "VIBRATE",
         "WAKE_LOCK",
         "RECEIVE_BOOT_COMPLETED",
         "SCHEDULE_EXACT_ALARM"
@@ -54,6 +55,14 @@
       },
       "package": "com.jotapeh1002.myexpoapp",
       "useNextNotificationsApi": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "65da30a8-9bb0-431d-b925-a5a0fcf82110"
+      }
     }
   }
 }
