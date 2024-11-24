@@ -38,6 +38,10 @@ export default function Home() {
     }
 
     fetchData();
+    const intervalId = setInterval(()=>{
+      fetchData() 
+      alert()
+    } , 600000);
   }, []);
 
   return (
