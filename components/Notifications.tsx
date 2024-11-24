@@ -1,15 +1,6 @@
 import * as Notifications from 'expo-notifications';
 import React, { useEffect, useRef } from 'react';
 
-type NotificationAction = {
-  identifier: string;
-  buttonTitle: string;
-  options: {
-    isDestructive: boolean;
-    isAuthenticationRequired: boolean;
-  };
-};
-
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
     shouldShowAlert: true,
@@ -18,15 +9,8 @@ Notifications.setNotificationHandler({
   }),
 });
 
-const responseListener = useRef();
 
-useEffect(() => {
-
-  registerForPushNotificationsAsync();
-
-}, []);
-
-const registerForPushNotificationsAsync = async (): Promise<void> => {
+export const registerForPushNotificationsAsync = async (): Promise<void> => {
   const { status: existingStatus } = await Notifications.getPermissionsAsync();
   let finalStatus = existingStatus;
 

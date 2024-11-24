@@ -1,6 +1,7 @@
 import { FlatList, Image, Text, TouchableOpacity, View } from 'react-native';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import React from 'react';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export interface typeMedicamentsCards {
   id: number;
@@ -79,12 +80,12 @@ export function Card({ onPress, onPressLong, data }: CardProps) {
           </View>
         </View>
       )}
-      <FlatList
-        data={data}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={renderItem}
-        contentContainerStyle={{ paddingVertical: 10 }}
-      />
+        <FlatList
+          data={data}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={renderItem}
+          contentContainerStyle={{ paddingVertical: 10 }}
+        />
     </View>
   );
 }

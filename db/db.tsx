@@ -22,25 +22,26 @@ export async function createTable() {
             genery TEXT,
             photoProfile TEXT );
             `);
-        console.log('Tabela criada com sucesso!...')
+        // console.log('Tabela criada com sucesso!...')
     } catch (error) {
         console.log('Erro ao criar tabela: ', error)
     }
 }
 
 export async function getMedicament(nameMedicament?: string, alarmHour?: number,frequencyMedicament?:number,especificDay?:string, quantityMedicament?: string) {
-    createTable()
+    await createTable()
     const db = await dbPromise;
     try {
         await db.execAsync(`INSERT INTO medicamentsAlarm (nameMedicament,alarmHour,frequencyMedicament,especificDay,quantityMedicament) 
             VALUES ('${nameMedicament}','${alarmHour}','${frequencyMedicament}','${especificDay}','${quantityMedicament}')`)
-        console.log("Medicamento inserido com sucesso....")
+        // console.log("Medicamento inserido com sucesso....")
     } catch (error) {
         console.log('Erro inserir medicamentos: ', error)
     }
 }
 
 export async function select() {
+    createTable()
     const db = await dbPromise;
     let medicamentsList = []
     const allRows = await db.getAllAsync('SELECT * FROM medicamentsAlarm')
@@ -68,10 +69,11 @@ export async function select() {
 }
 
 export async function deleteItem(id:number) {
+    createTable()
     const db = await dbPromise;
     try {
         await db.execAsync(`DELETE FROM medicamentsAlarm WHERE id = ${id}`);
-        console.log(`Item com id ${id} deletado com sucesso.`);
+        // console.log(`Item com id ${id} deletado com sucesso.`);
     } catch (error) {
         console.log('Erro ao deletar item: ', error);
     }
@@ -81,7 +83,7 @@ export async function deletedb() {
     const db = await dbPromise;
     try {
         await db.execAsync('DROP TABLE IF EXISTS medicamentsAlarm')
-        console.log("DELETADO COM com sucesso.")
+        // console.log("DELETADO COM com sucesso.")
     } catch (error) {
         console.log('Erro ao DELETAR BD: ', error)
     }

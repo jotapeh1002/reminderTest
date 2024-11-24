@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { View, Text, ImageBackground, TouchableOpacity, Image, Button } from 'react-native';
 import { TextInput } from 'react-native-paper';
 import { Link, Stack } from 'expo-router';
-import { useRouter } from 'expo-router';
 
 export default function AddMedicaments() {
 

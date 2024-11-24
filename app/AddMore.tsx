@@ -40,7 +40,6 @@ export default function AddMore() {
           }
           getMedicament(nameMedicament.toString(),dateModify,parseInt(selectedFrequency),selectedDays.toString(),quantityDiaryMedicament )
         }
-        console.log(select())
       }
       return 'bg-blue-500'
     }
