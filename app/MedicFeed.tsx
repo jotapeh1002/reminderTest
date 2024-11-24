@@ -34,7 +34,8 @@ export default function MedicFeed() {
   };
 
   const getSelect = async (): Promise<void> => { 
-    setData(v);
+    let databaseSet = await select()
+    setData(databaseSet);
     console.log(data);
   };
 
